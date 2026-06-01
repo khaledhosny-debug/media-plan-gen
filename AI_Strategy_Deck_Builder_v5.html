@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Strategy Deck Builder</title>
+<style>
+body{margin:0;background:#050505;color:#fff;font-family:Segoe UI,Tahoma}
+.container{max-width:1400px;margin:auto;padding:24px}
+.hero{background:linear-gradient(135deg,#111,#1b1b1b);padding:35px;border-radius:28px;border:1px solid #252525}
+.card{background:#101010;border:1px solid #222;border-radius:22px;padding:20px}
+.grid{display:grid;gap:18px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+label{display:block;margin-bottom:8px;color:#bdbdbd;font-size:14px}
+input,select{width:100%;padding:12px;background:#090909;color:#fff;border:1px solid #333;border-radius:12px}
+button{background:#fff;color:#000;border:none;padding:14px 20px;border-radius:12px;font-weight:bold;cursor:pointer}
+.kpi{font-size:34px;font-weight:800}
+.section{margin-top:20px}
+.accordion{background:#121212;padding:16px;border-radius:16px;margin-top:12px}
+.platform{padding:18px;border-radius:18px}
+.snap{border-right:5px solid #FFFC00}
+.google{border-right:5px solid #34A853}
+.meta{border-right:5px solid #1877F2}
+.tiktok{border-right:5px solid #25F4EE}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="hero">
+<h1>🎯 AI Strategy Deck Builder</h1>
+<p>Presentation Ready Media Plan for GCC E-commerce</p>
+</div>
+
+<div class="card section">
+<div class="grid g4">
+<div><label>Business Type</label><input id="business" value="Fashion Store"></div>
+<div><label>Country</label><select id="country"><option>Saudi Arabia</option><option>UAE</option></select></div>
+<div><label>Monthly Budget (SAR)</label><input id="budget" value="100000"></div>
+<div><label>Average Order Value (AOV)</label><input id="aov" value="350"></div>
+</div>
+<br>
+<button onclick="build()">Generate Strategy Deck</button>
+</div>
+
+<div id="deck"></div>
+
+</div>
+
+<script>
+function build(){
+let b=parseFloat(document.getElementById('budget').value)||100000;
+let aov=parseFloat(document.getElementById('aov').value)||350;
+let country=document.getElementById('country').value;
+let business=document.getElementById('business').value;
+
+let revenue=b*4;
+let orders=Math.round(revenue/aov);
+
+document.getElementById('deck').innerHTML=`
+
+<div class="card section">
+<h2>Executive Summary</h2>
+<div class="grid g4">
+<div><div>Strategy Type</div><div class="kpi">Growth</div></div>
+<div><div>Main Platform</div><div class="kpi">Snap</div></div>
+<div><div>Expected Revenue</div><div class="kpi">${revenue.toLocaleString()}</div></div>
+<div><div>Expected Orders</div><div class="kpi">${orders}</div></div>
+</div>
+</div>
+
+<div class="card section">
+<h2>Why This Strategy?</h2>
+<ul>
+<li>Snapchat هو محرك التوسع الرئيسي في السوق الخليجي.</li>
+<li>Google يحقق أعلى نية شراء.</li>
+<li>Meta أفضل منصة للريتارجتنج.</li>
+<li>TikTok مخصص لاختبار الكريتيفات.</li>
+</ul>
+</div>
+
+<div class="card section">
+<h2>Budget Strategy</h2>
+<table width="100%">
+<tr><td>Snapchat</td><td>45%</td><td>${(b*0.45).toLocaleString()}</td></tr>
+<tr><td>Google</td><td>30%</td><td>${(b*0.30).toLocaleString()}</td></tr>
+<tr><td>Meta</td><td>20%</td><td>${(b*0.20).toLocaleString()}</td></tr>
+<tr><td>TikTok</td><td>5%</td><td>${(b*0.05).toLocaleString()}</td></tr>
+</table>
+</div>
+
+<div class="grid g2 section">
+<div class="card">
+<h2>Geo Strategy</h2>
+<h3>Tier 1</h3>
+<p>Riyadh • Jeddah • Dammam</p>
+<h3>Tier 2</h3>
+<p>Khobar • Makkah • Madinah</p>
+</div>
+
+<div class="card">
+<h2>Audience Matrix</h2>
+<p>Cold → Broad + Interests (60%)</p>
+<p>Warm → Visitors + Video Viewers (25%)</p>
+<p>Hot → ATC + IC (15%)</p>
+</div>
+</div>
+
+<div class="section">
+<div class="accordion platform snap">
+<h2>Snapchat Growth Engine</h2>
+<p>Campaigns: Broad / Retargeting / Testing</p>
+<p>Target: 18-34 • Shopping • Fashion • Lifestyle</p>
+<p>Expected ROAS: 3.5 - 5</p>
+</div>
+
+<div class="accordion platform google">
+<h2>Google High Intent Engine</h2>
+<p>Brand Search • Generic Search • PMax • Remarketing</p>
+</div>
+
+<div class="accordion platform meta">
+<h2>Meta Retargeting Engine</h2>
+<p>Broad • LAL • Retargeting • Catalog</p>
+</div>
+
+<div class="accordion platform tiktok">
+<h2>TikTok Creative Testing Engine</h2>
+<p>UGC • Creators • Testing</p>
+</div>
+</div>
+
+<div class="card section">
+<h2>Creative Strategy</h2>
+<ul>
+<li>Problem → Solution UGC</li>
+<li>Before / After</li>
+<li>Social Proof</li>
+<li>Limited Offer</li>
+<li>Creator Testimonials</li>
+</ul>
+</div>
+
+<div class="card section">
+<h2>30 Day Action Plan</h2>
+<p><b>Week 1:</b> Launch</p>
+<p><b>Week 2:</b> Optimization</p>
+<p><b>Week 3:</b> Scaling</p>
+<p><b>Week 4:</b> Expansion</p>
+</div>
+
+`}
+build();
+</script>
+</body>
+</html>
